@@ -12,20 +12,21 @@ contract SmartTokenBank is ITokenRecipient {
     bool public paused;
 
     // token -> user -> principal
-    mapping(address => mapping(address => uint256)) public balances;
+    mapping(address => mapping(address => uint256)) public balances;              //本金
     // token -> user -> accrued interest
-    mapping(address => mapping(address => uint256)) public accruedInterest;
+    mapping(address => mapping(address => uint256)) public accruedInterest;       //结算好的利息
     // token -> user -> last deposit/settlement timestamp
-    mapping(address => mapping(address => uint256)) public depositTimestamps;
+    mapping(address => mapping(address => uint256)) public depositTimestamps;     //上次结算时间
     // token -> total actual deposits
-    mapping(address => uint256) public totalDeposits;
-
+    mapping(address => uint256) public totalDeposits;                             //代币总存款
+    
+    //利息相关的常量
     // 0.1% per day = 1/1000 per day
     uint256 public constant INTEREST_RATE_NUMERATOR = 1;
     uint256 public constant INTEREST_RATE_DENOMINATOR = 1000;
     uint256 public constant SECONDS_PER_DAY = 86400;
 
-    event Deposit(address indexed token, address indexed user, uint256 amount);
+    event Deposit(address indexed token, address indexed user, uint256 amount);   //五个事件
     event Withdraw(
         address indexed token,
         address indexed user,
@@ -38,6 +39,8 @@ contract SmartTokenBank is ITokenRecipient {
         address indexed previousAdmin,
         address indexed newAdmin
     );
+
+    //修饰器
 
     modifier onlyAdmin() {
         require(msg.sender == admin, "SmartTokenBank: caller is not admin");
@@ -54,12 +57,13 @@ contract SmartTokenBank is ITokenRecipient {
         _;
     }
 
+    //构造函数
     constructor() {
         admin = msg.sender;
         paused = false;
     }
 
-    // ==================== Admin Functions ====================
+    // ==================== Admin Functions ====================   管理员函数
 
     function pause() external onlyAdmin whenNotPaused {
         paused = true;
@@ -87,7 +91,7 @@ contract SmartTokenBank is ITokenRecipient {
         emit OwnershipTransferred(previousAdmin, newAdmin);
     }
 
-    // ==================== Core Functions ====================
+    // ==================== Core Functions ====================  核心函数
 
     function deposit(address token, uint256 amount) external whenNotPaused {
         require(token != address(0), "Invalid token address");
@@ -112,9 +116,9 @@ contract SmartTokenBank is ITokenRecipient {
         // Settle pending interest first
         _settleInterest(token, msg.sender);
 
-        uint256 principal = balances[token][msg.sender];
-        uint256 interest = accruedInterest[token][msg.sender];
-        uint256 totalAvailable = principal + interest;
+        uint256 principal = balances[token][msg.sender];         //本金
+        uint256 interest = accruedInterest[token][msg.sender];   //利息
+        uint256 totalAvailable = principal + interest;           //总金额
 
         require(amount <= totalAvailable, "Insufficient balance");
 
@@ -187,6 +191,7 @@ contract SmartTokenBank is ITokenRecipient {
     /**
      * @notice Calculate pending interest (not yet settled)
      */
+     //待结算利息计算器：只算完整天、基于当前本金和上次结算时间，返回你“还没落袋但已经赚到”的利息。
     function calculatePendingInterest(
         address token,
         address user
@@ -214,6 +219,7 @@ contract SmartTokenBank is ITokenRecipient {
     /**
      * @notice Get total interest (settled + pending)
      */
+     //总收益是多少
     function getTotalInterest(
         address token,
         address user
@@ -250,6 +256,7 @@ contract SmartTokenBank is ITokenRecipient {
     /**
      * @dev Settle pending interest to accruedInterest
      */
+     //一次性返回本金、已赚利息、正在赚的利息、总收益、总资产，让用户和前端对存款情况一目了然
     function _settleInterest(address token, address user) internal {
         uint256 pending = calculatePendingInterest(token, user);
         if (pending > 0) {
@@ -261,7 +268,7 @@ contract SmartTokenBank is ITokenRecipient {
         }
     }
 
-    // ==================== View Functions ====================
+    // ==================== View Functions ==================== 查看函数
 
     function _isContract(address account) internal view returns (bool) {
         return account.code.length > 0;

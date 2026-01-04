@@ -1,0 +1,258 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Deposit",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousAdmin",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newAdmin",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "admin",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Withdraw",
+				"type": "event"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "fallback"
+			},
+			{
+				"inputs": [],
+				"name": "MIN_DEPOSIT",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "admin",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "balances",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "deposit",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getTopDepositors",
+				"outputs": [
+					{
+						"internalType": "address[3]",
+						"name": "",
+						"type": "address[3]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "topDepositors",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newAdmin",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"src/2_BigBank.sol": "BigBank"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": [
+			":@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/\r",
+			":@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/\r",
+			":ds-test/=lib/forge-std/lib/ds-test/src/\r",
+			":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\r",
+			":forge-std/=lib/forge-std/src/\r",
+			":halmos-cheatcodes/=lib/openzeppelin-contracts/lib/halmos-cheatcodes/src/\r",
+			":openzeppelin-contracts/=lib/openzeppelin-contracts/\r"
+		]
+	},
+	"sources": {
+		"src/1_EtherBank.sol": {
+			"keccak256": "0x9bf736a161dcdd62d8fbc29d9ddc54caa1e3076b7f525a682f9d1aaf795744b7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://631ea54ea897c8d5e26d4c830f31cfc8e56214ebd39fa0c2b893520dbf33920e",
+				"dweb:/ipfs/QmQMJ43EjWi66JYuAjrHBB9APEE5b1NzJ4Hum6Vkjwj4QS"
+			]
+		},
+		"src/2_BigBank.sol": {
+			"keccak256": "0xdb86197496b557a16295d96621f860fbb8da0d00f0a67bf35f1b3302499d542c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://89dfedf6bf05e2ebc5a67bf1a5e68afedbcb64f3d63fd35cd77cecf31680bbb0",
+				"dweb:/ipfs/QmUPEWqmn4zwnUsYArtvHqgafrxsgMD3KF5BTe8VkkS54A"
+			]
+		},
+		"src/2_IBank.sol": {
+			"keccak256": "0x0473db1129e65c316cdd616200d2e464afb725c1043fd3b12cb7c6e61d89c347",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://21e656c9426cc09e7f7559fbfbe6e29e0e67827ffa5053b7be584f6fc65e6c5d",
+				"dweb:/ipfs/QmdhVmFkY2XcqwdasZCRx2hXerss5xLzJ5Q4pVnLwEtuVQ"
+			]
+		}
+	},
+	"version": 1
+}

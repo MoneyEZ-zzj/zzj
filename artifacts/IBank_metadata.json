@@ -1,0 +1,77 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"withdraw(uint256)": {
+					"params": {
+						"amount": "提款金额"
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"withdraw(uint256)": {
+					"notice": "提款函数接口"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"src/2_IBank.sol": "IBank"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": [
+			":@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/\r",
+			":@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/\r",
+			":ds-test/=lib/forge-std/lib/ds-test/src/\r",
+			":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\r",
+			":forge-std/=lib/forge-std/src/\r",
+			":halmos-cheatcodes/=lib/openzeppelin-contracts/lib/halmos-cheatcodes/src/\r",
+			":openzeppelin-contracts/=lib/openzeppelin-contracts/\r"
+		]
+	},
+	"sources": {
+		"src/2_IBank.sol": {
+			"keccak256": "0x0473db1129e65c316cdd616200d2e464afb725c1043fd3b12cb7c6e61d89c347",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://21e656c9426cc09e7f7559fbfbe6e29e0e67827ffa5053b7be584f6fc65e6c5d",
+				"dweb:/ipfs/QmdhVmFkY2XcqwdasZCRx2hXerss5xLzJ5Q4pVnLwEtuVQ"
+			]
+		}
+	},
+	"version": 1
+}

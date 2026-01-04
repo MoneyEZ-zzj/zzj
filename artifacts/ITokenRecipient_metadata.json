@@ -1,0 +1,88 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "onTransferReceived",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"src/4_ITokenRecipient.sol": "ITokenRecipient"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": [
+			":@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/\r",
+			":@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/\r",
+			":ds-test/=lib/forge-std/lib/ds-test/src/\r",
+			":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\r",
+			":forge-std/=lib/forge-std/src/\r",
+			":halmos-cheatcodes/=lib/openzeppelin-contracts/lib/halmos-cheatcodes/src/\r",
+			":openzeppelin-contracts/=lib/openzeppelin-contracts/\r"
+		]
+	},
+	"sources": {
+		"src/4_ITokenRecipient.sol": {
+			"keccak256": "0x2bf934b37be2f36677c7d789232562631a96ea00e29870e90637d54d8730f61a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f03376d1d5369c79672c072a3b8a454f66f61208e39851c47b9d9c3b64d62ba6",
+				"dweb:/ipfs/QmUP9vfkqzvFjEFsoU8UGyW79X1RZRqANcohmDGhwgehA9"
+			]
+		}
+	},
+	"version": 1
+}
