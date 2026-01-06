@@ -190,11 +190,11 @@
 	},
 	"sources": {
 		"src/1_EtherBank.sol": {
-			"keccak256": "0x9bf736a161dcdd62d8fbc29d9ddc54caa1e3076b7f525a682f9d1aaf795744b7",
+			"keccak256": "0xe48662033e67ec0379292191f3409532f0cb4cf8a582b9c17bd8ad101cfcea9d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://631ea54ea897c8d5e26d4c830f31cfc8e56214ebd39fa0c2b893520dbf33920e",
-				"dweb:/ipfs/QmQMJ43EjWi66JYuAjrHBB9APEE5b1NzJ4Hum6Vkjwj4QS"
+				"bzz-raw://1bb8c8216ea6b64c48f89601f513e7121c01fab9f75566a02964b747843614e9",
+				"dweb:/ipfs/QmaxvQMQ5iphBruqxnPUeKiQphA7PResUbZz86Wc9CCF1J"
 			]
 		}
 	},

@@ -80,7 +80,7 @@ contract EtherBank {
             "Insufficient contract balance"
         );
         payable(admin).transfer(amount);
-        emit Withdraw(admin, amount);
+        emit Withdraw(admin, amount);                                               
     }
 
     function getBalance() external view returns (uint256) {
